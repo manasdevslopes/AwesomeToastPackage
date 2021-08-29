@@ -1,3 +1,3 @@
 # AwesomeToast
 
-A description of this package.
+A custom Awesome Toast for iOS 14 Apps.
