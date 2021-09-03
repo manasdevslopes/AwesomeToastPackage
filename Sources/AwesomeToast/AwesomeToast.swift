@@ -6,26 +6,16 @@ public enum ToastType: String, Equatable, CaseIterable {
 }
 
 public struct ToastModifier: ViewModifier {
-    
     @Binding var isPresented: Bool
     var title: String = ""
-    var message: String?
+    var message: String? = ""
     var color: Color? = Color.primary.opacity(0.5)
     var duration: Int? = 2
     var alignment: VerticalAlignment? = .bottom
     var toastType: ToastType? = .scaleToast
-    var image: Image?
+    var image: Image? = nil
     
-    /// Only two required parameters are title and the binding to isPresented. All other parameters have default values. And you can set images  from SF Symbols App icons.
-    /// - Parameters:
-    ///     - isPresented: Binding Boolean (true / false)
-    ///     - title: String
-    ///     - message: String
-    ///     - color: The color for Background. Type of Color
-    ///     - duration: Number of seconds, Toast displayed. By default 2sec
-    ///     - alignment: An enum value of Type VerticalAlignment
-    ///     - toastType: An enum value (scaleToast / offsetToast)
-    ///     - image: use SF Symbols App. Type of Image.
+    
     var scaleToast: some View {
         VStack {
             if alignment == .bottom {
@@ -44,9 +34,11 @@ public struct ToastModifier: ViewModifier {
                             .toastStyle()
                             .font(.headline)
                     }
-                    Text(message ?? "")
-                        .toastStyle()
-                        .font(.footnote)
+                    if !message!.isEmpty {
+                        Text(message ?? "")
+                            .toastStyle()
+                            .font(.footnote)
+                    }
                 }
             }
             .toastContentModifier(bgColor: color ?? Color.primary.opacity(0.5))
@@ -80,9 +72,11 @@ public struct ToastModifier: ViewModifier {
                             .toastStyle()
                             .font(.headline)
                     }
-                    Text(message ?? "")
-                        .toastStyle()
-                        .font(.footnote)
+                    if !message!.isEmpty {
+                        Text(message ?? "")
+                            .toastStyle()
+                            .font(.footnote)
+                    }
                 }
             }
             .toastContentModifier(bgColor: color ?? Color.primary.opacity(0.5))
@@ -153,77 +147,21 @@ extension View {
 }
 
 extension View {
-    public func showToast(_ message: String, isPresented: Binding<Bool>) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message))
-    }
     
-    public func showToast(_ message: String, isPresented: Binding<Bool>, color: Color) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message, color: color))
-    }
-  
- 
-    public func showToast(_ message: String, isPresented: Binding<Bool>, duration: Int) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message))
-    }
+    /// Only two required parameters are title and the binding to isPresented. All other parameters have default values. And you can set images  from SF Symbols App icons.
+    /// - Parameters:
+    ///   - title: String
+    ///   - message: String
+    ///   - isPresented: Binding Boolean (true / false)
+    ///   - color: The color for Background. Type is Color
+    ///   - duration: Number of seconds, Toast displayed. By default 2sec
+    ///   - alignment: An enum value of Type VerticalAlignment
+    ///   - toastType: An enum value (scaleToast / offsetToast)
+    ///   - image: use SF Symbols App. Type of Image.
     
-    public func showToast(_ message: String, isPresented: Binding<Bool>, color: Color, duration: Int) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message, color: color))
-    }
-    
-    public func showToast(_ message: String, isPresented: Binding<Bool>,  alignment: VerticalAlignment) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message, alignment: alignment))
-    }
-    
-    public func showToast(_ message: String, isPresented: Binding<Bool>, color: Color, duration: Int, alignment: VerticalAlignment) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message, color: color, duration: duration, alignment: alignment))
-    }
-    
-    public func showToast(_ message: String, isPresented: Binding<Bool>, color: Color, duration: Int, alignment: VerticalAlignment, toastType: ToastType) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message, color: color, duration: duration, alignment: alignment, toastType: toastType))
-    }
-    
-    public func showToast(_ message: String, isPresented: Binding<Bool>, color: Color, alignment: VerticalAlignment) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message, color: color, alignment: alignment))
-    }
-    
-    public func showToastWithTitle(title: String, message: String, isPresented: Binding<Bool>) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, title: title, message: message))
-    }
-    
-    public func showToastWithTitle(title: String, message: String, isPresented: Binding<Bool>, color: Color, toastType: ToastType) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, title: title, message: message, color: color, toastType: toastType))
-    }
-    
-    public func showToastWithTitleAndImage(title: String, message: String, image: Image, isPresented: Binding<Bool>) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, title: title, message: message, image: image))
-    }
-    
-    public func showToastWithTitleAndImage(title: String, message: String, image: Image, isPresented: Binding<Bool>, color: Color) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, title: title, message: message, color: color, image: image))
-    }
-    
-    public func showToastWithTitleAndImage(title: String, message: String, image: Image, isPresented: Binding<Bool>, color: Color, toastType: ToastType) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, title: title, message: message, color: color, toastType: toastType, image: image))
-    }
-    
-    public func showToastWithTitleAndImage(title: String, message: String, image: Image?, isPresented: Binding<Bool>, color: Color, duration: Int, toastType: ToastType) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, title: title, message: message, color: color, duration: duration, toastType: toastType, image: image))
-    }
-    
-    public func showToastWithImage(_ message: String, image: Image, isPresented: Binding<Bool>) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message, image: image))
-    }
-    
-    public func showToastWithImage(_ message: String, image: Image, isPresented: Binding<Bool>, color: Color) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message, color: color, image: image))
-    }
-    
-    public func showToastWithImage(_ message: String, image: Image, isPresented: Binding<Bool>, color: Color, duration: Int) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message, color: color, duration: duration, image: image))
-    }
-    
-    public func showToastWithImage(_ message: String, image: Image, isPresented: Binding<Bool>, color: Color, duration: Int, toastType: ToastType) -> some View {
-        self.modifier(ToastModifier(isPresented: isPresented, message: message, color: color, duration: duration, toastType: toastType, image: image))
+    public func showToast(title: String, _ message: String? = "", isPresented: Binding<Bool>, color: Color? = Color.primary.opacity(0.5), duration: Int? = 2, alignment: VerticalAlignment? = .bottom, toastType: ToastType? = .scaleToast, image: Image? = nil) -> some View {
+        
+        self.modifier(ToastModifier(isPresented: isPresented, title: title, message: message, color: color, duration: duration, alignment: alignment, toastType: toastType, image: image))
     }
 }
 
