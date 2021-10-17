@@ -80,11 +80,7 @@
 
 <p><strong>Parameters:</strong></p>
 
-<ul>
-<li><code>isPresenting</code>: (MUST) assign a <code>Binding&lt;Bool&gt;</code> to show or dismiss alert.</li>
-<li><code>duration</code>: default is 2, set 0 to disable auto dismiss.</li>
-<li><code>tapToDismiss</code>: default is <code>true</code>, set <code>false</code> to disable.</li>
-    
+<ul>    
 <li><code>title</code>: (MUST) expects <code>String</code>.</li>
 <li><code>message</code>: (MUST) expects <code>String</code>.</li>
 <li><code>isPresented</code>: (MUST) assign a <code>Binding&lt;Bool&gt;</code> to show or dismiss alert.</li>
