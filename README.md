@@ -101,6 +101,7 @@ import AwesomeToast
 
 struct ContentView: View {
     @State private var topToast: Bool = false
+    
     var body: some View {
         Button("Top toast") {
             withAnimation {
