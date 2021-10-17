@@ -15,4 +15,31 @@
 <li>Icon &amp; Background customization.</li>
 </ul>
 
+
+<h2>Navigation</h2>
+
+<ul>
+<li><a href="#-installation">Installation</a>
+<ul>
+<li><a href="#swift-package-manager">Swift Package Manager</a></li>
+<li><a href="#manually">Manually</a></li>
+</ul>
+</li>
+<li><a href="#-usage">Usage</a>
+<ul>
+<li><a href="#usage-example-with-regular-alert">Usage example with regular alert</a></li>
+<li><a href="#complete-modifier-example">Complete Modifier Example</a></li>
+<li><a href="#alert-toast-parameters">Alert Toast Parameters</a></li>
+</ul>
+</li>
+<li><a href="#-article">Article</a></li>
+<li><a href="#-contributing">Contributing</a></li>
+<li><a href="#-author">Author</a></li>
+<li><a href="#-license">License</a></li>
+</ul>
+
+<h2>💻 Installation</h2>
+
+
+
 A custom Awesome Toast for iOS 14 Apps.
