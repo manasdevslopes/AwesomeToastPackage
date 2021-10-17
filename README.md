@@ -27,7 +27,7 @@
 </li>
 <li><a href="#-usage">Usage</a>
 <ul>
-<li><a href="#usage-example-with-regular-alert">Usage example with regular alert</a></li>
+<li><a href="#usage-example-with-regular-alert">Usage example with regular toast</a></li>
 </ul>
 </li>
 <li><a href="#-contributing">Contributors</a></li>
