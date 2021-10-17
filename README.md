@@ -103,7 +103,8 @@ struct ContentView: View {
             withAnimation {
                 topToast.toggle()
             }
-        }
+        }.showToast(title: "Hello Me! I'm iOS App Developer", "SwiftUI", isPresented: $topToast, color: Color(#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)), duration: 4, alignment: .top, toastType: .offsetToast, image: Image(systemName: "star.fill"))
+        
     </code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="" tabindex="0" role="button">
       <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon m-2">
