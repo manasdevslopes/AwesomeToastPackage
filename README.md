@@ -67,7 +67,10 @@
 
 <h2>🧳 Requirements</h2>
 
-
+<ul>
+<li>iOS 14.0+ | macOS 11+</li>
+<li>Xcode 12.0+ | Swift 5+</li>
+</ul>
 
 
 A custom Awesome Toast for iOS 14 Apps.
