@@ -111,7 +111,6 @@ struct ContentView: View {
         .showToast(title: "Hello Me! I'm iOS App Developer", "SwiftUI", isPresented: $topToast, color: Color(#colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)), duration: 4, alignment: .top, toastType: .offsetToast, image: Image(systemName: "star.fill"))
     }
 }
-
 </code>
 </pre><div class="zeroclipboard-container position-absolute right-0 top-0">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="https://github.com/manasdevslopes/AwesomeToastPackage.git" tabindex="0" role="button">
