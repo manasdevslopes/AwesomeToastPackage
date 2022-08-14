@@ -1,0 +1,11 @@
+framework module AwesomeToast {
+  umbrella header "AwesomeToast.h"
+
+  export *
+  module * { export * }
+}
+
+module AwesomeToast.Swift {
+    header "AwesomeToast-Swift.h"
+    requires objc
+}
