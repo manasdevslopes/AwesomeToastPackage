@@ -1,0 +1,40 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
+// swift-module-flags: -target x86_64-apple-ios15.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AwesomeToast
+@_exported import AwesomeToast
+import Swift
+import SwiftUI
+import _Concurrency
+public enum ToastType : Swift.String, Swift.Equatable, Swift.CaseIterable {
+  case scaleToast
+  case offsetToast
+  public init?(rawValue: Swift.String)
+  public typealias AllCases = [AwesomeToast.ToastType]
+  public typealias RawValue = Swift.String
+  public static var allCases: [AwesomeToast.ToastType] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct ToastModifier : SwiftUI.ViewModifier {
+  @_Concurrency.MainActor(unsafe) public func body(content: AwesomeToast.ToastModifier.Content) -> some SwiftUI.View
+  
+  public func toastTime()
+  public typealias Body = @_opaqueReturnTypeOf("$s12AwesomeToast0B8ModifierV4body7contentQr7SwiftUI05_ViewC8_ContentVyACG_tF", 0) __
+}
+extension SwiftUI.Text {
+  public func toastStyle(textAlignment: SwiftUI.TextAlignment = .center) -> some SwiftUI.View
+  
+}
+extension SwiftUI.View {
+  public func toastContentModifier(bgColor: SwiftUI.Color) -> some SwiftUI.View
+  
+}
+extension SwiftUI.View {
+  public func showToast(title: Swift.String, _ message: Swift.String? = "", isPresented: SwiftUI.Binding<Swift.Bool>, color: SwiftUI.Color? = Color.primary.opacity(0.5), duration: Swift.Int? = 2, alignment: SwiftUI.VerticalAlignment? = .bottom, toastType: AwesomeToast.ToastType? = .scaleToast, image: SwiftUI.Image? = nil) -> some SwiftUI.View
+  
+}
+extension AwesomeToast.ToastType : Swift.Hashable {}
+extension AwesomeToast.ToastType : Swift.RawRepresentable {}
